@@ -1,4 +1,4 @@
-* 本仓库地址：git@github.com:fmz200/jd_scripts.git
+* 本仓库地址：https://github.com/fmz200/jd_scripts
 
 ###github上传本地项目
 
@@ -20,3 +20,4 @@
 ![img.png](img.png)
 
 
+https://avatars.githubusercontent.com/u/57740735?s=60&v=4
