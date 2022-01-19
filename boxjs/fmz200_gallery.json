@@ -61,6 +61,7 @@
     "5 10 * * * https://raw.githubusercontent.com/fmz200/jd_scripts/master/scripts/jd_try.js, tag=京东试用fmz, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true",
     "5 9 * * * https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_try.js, tag=京东试用ZCY01, img-url=https://raw.githubusercontent.com/ZCY01/img/master/jdtryv1.png, enabled=true",
     "5 8 * * * https://raw.githubusercontent.com/fmz200/jd_scripts/master/scripts/jd_try2.js, tag=京东试用, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true",
-    "15 17 * * * https://raw.githubusercontent.com/fmz200/jd_scripts/master/backUp/xmSports.js, tag=小米运动, img-url=https://raw.githubusercontent.com/58xinian/icon/master/xmyd.png, enabled=true"
+    "15 17 * * * https://raw.githubusercontent.com/fmz200/jd_scripts/master/backUp/xmSports.js, tag=小米运动, img-url=https://raw.githubusercontent.com/58xinian/icon/master/xmyd.png, enabled=true",
+    "15 7 * * * https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/weibotalk.js, tag=微博超话, img-url=https://raw.githubusercontent.com/fmz200/jd_scripts/master/icon/weibotalk.jpg, enabled=true"
   ]
 }
