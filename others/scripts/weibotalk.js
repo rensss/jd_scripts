@@ -59,8 +59,8 @@ $.time = 30000 //【签到间隔，单位ms】，若超话过多，建议填1000
 debug = false
 
 !(async () => {
-    if(!get_setting()) return
-    if(!get_counts()) return
+    if (!get_setting()) return
+    if (!get_counts()) return
     console.log(`🌟 账号数 = ${$.count_num}`)
     for (var current = 1; current <= $.count_num; ++current) {
         init_env(current)
@@ -246,7 +246,7 @@ function sleep(s) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve();
-        }, s * 1000);
+        }, s);
     })
 }
 
