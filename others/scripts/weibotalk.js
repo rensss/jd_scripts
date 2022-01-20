@@ -70,7 +70,10 @@ debug = false
         }
         for (var i in $.name_list) {
             await checkin($.id_list[i], $.name_list[i]);
-            $.wait($.time);
+            var t = Math.round(Math.random() * 1000 * (60 - 20) * 2) + 10 * 1000;
+            console.log(`随机延迟 ${t / 1000} 秒...`);
+            await sleep(t);
+            // $.wait($.time);
         }
         output(current)
     }
@@ -156,13 +159,13 @@ function output(current) {
     $.this_msg = ""
     for (var i = 1; i <= $.message.length; ++i) {
         if (i % ($.msg_max_num) == 0) {
-            $.msg(`${$.name}${$.count_num==1?"":(current==1?"[账号一]":"[账号二]")}:  成功${$.successNum}个，失败${$.failNum}`, `当前第${Math.ceil(i/$.msg_max_num)}页 ，共${Math.ceil($.message.length/$.msg_max_num)}页`, $.this_msg)
+            $.msg(`${$.name}${$.count_num == 1 ? "" : (current == 1 ? "[账号一]" : "[账号二]")}:  成功${$.successNum}个，失败${$.failNum}`, `当前第${Math.ceil(i / $.msg_max_num)}页 ，共${Math.ceil($.message.length / $.msg_max_num)}页`, $.this_msg)
             $.this_msg = ""
         }
-        $.this_msg += `${$.message[i-1]}\n`
+        $.this_msg += `${$.message[i - 1]}\n`
     }
     if ($.message.length % $.msg_max_num != 0) {
-        $.msg(`${$.name}${$.count_num==1?"":(current==1?"[账号一]":"[账号二]")}:  成功${$.successNum}个，失败${$.failNum}`, `当前第${Math.ceil((i-1)/$.msg_max_num)}页 ，共${Math.ceil($.message.length/$.msg_max_num)}页`, $.this_msg)
+        $.msg(`${$.name}${$.count_num == 1 ? "" : (current == 1 ? "[账号一]" : "[账号二]")}:  成功${$.successNum}个，失败${$.failNum}`, `当前第${Math.ceil((i - 1) / $.msg_max_num)}页 ，共${Math.ceil($.message.length / $.msg_max_num)}页`, $.this_msg)
     }
 }
 
@@ -178,7 +181,7 @@ function get_page_number() {
             }
             var body = response.body;
             var obj = JSON.parse(body);
-            if (obj.hasOwnProperty('errmsg')||obj.cardlistInfo.total==undefined||obj.cardlistInfo.total==null) {
+            if (obj.hasOwnProperty('errmsg') || obj.cardlistInfo.total == undefined || obj.cardlistInfo.total == null) {
                 $.msg($.name, "🚨获取页数出现错误", `⚠️微博原话：${obj.errmsg}\n🧑🏻‍💻作者：账号过期了，清空cookie吧，重新获取。`)
                 $.pagenumber = 0
                 resolve()
@@ -213,7 +216,7 @@ function get_talk_id(page) {
             }
             var body = response.body;
             var obj = JSON.parse(body);
-            if (obj.hasOwnProperty('errmsg')||obj.cards==undefined||obj.cards==null) {
+            if (obj.hasOwnProperty('errmsg') || obj.cards == undefined || obj.cards == null) {
                 $.msg($.name, "🚨获取超话ID出现错误", `⚠️微博原话：${obj.errmsg}\n`)
                 resolve()
                 return
@@ -239,8 +242,13 @@ function get_talk_id(page) {
     })
 }
 
-
-
+function sleep(s) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, s * 1000);
+    })
+}
 
 //签到
 function checkin(id, name) {
@@ -259,31 +267,28 @@ function checkin(id, name) {
             name = name.replace(/超话/, "")
             if (response.statusCode == 200) {
                 msg_info = JSON.parse(response.body);
-                if(msg_info.hasOwnProperty('error_msg')){
+                if (msg_info.hasOwnProperty('error_msg')) {
                     $.failNum += 1;
                     error_code = msg_info.error_msg.match(/\((\d*?)\)/)[1]
-                    if(error_code == 382004){
+                    if (error_code == 382004) {
                         $.message.push(`【${name}】：✨今天已签到`);
                         console.log(`【${name}】：${msg_info.error_msg}`);
-                    }
-                    else{
+                    } else {
                         $.message.push(`【${name}】：${msg_info.error_msg}`);
                         console.log(`【${name}】："未知错误⚠️ 该请求的返回情况如下"`);
                         console.log(response.body)
                     }
-                }
-                else if (msg_info.hasOwnProperty('result') && msg_info.result == 1) {
+                } else if (msg_info.hasOwnProperty('result') && msg_info.result == 1) {
                     $.successNum += 1
                     $.message.push(`【${name}】：✅${msg_info.button.name}`)
                     console.log(`【${name}】：${msg_info.button.name}`);
-                }
-                else{
+                } else {
                     $.failNum += 1
                     $.message.push(`【${name}】：未知错误⚠️`);
                     console.log(`【${name}】："未知错误⚠️ 该请求的返回情况如下"`);
                     console.log(response.body)
                 }
-            }else if ((response.statusCode == 418)) {
+            } else if ((response.statusCode == 418)) {
                 $.failNum += 1
                 $.message.push(`【${name}】："签到太频繁啦，请稍后再试"`);
                 console.log(`【${name}】："签到太频繁啦，请稍后再试"`);
@@ -302,6 +307,7 @@ function checkin(id, name) {
 
     })
 }
+
 //@Chavy
 function Env(s) {
     this.name = s, this.data = null, this.logs = [], this.isSurge = (() => "undefined" != typeof $httpClient), this.isQuanX = (() => "undefined" != typeof $task), this.isNode = (() => "undefined" != typeof module && !!module.exports), this.log = ((...s) => {
