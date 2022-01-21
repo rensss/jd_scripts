@@ -70,7 +70,7 @@ debug = false
         }
         for (var i in $.name_list) {
             await checkin($.id_list[i], $.name_list[i]);
-            var t = Math.round(Math.random() * 1000 * (60 - 20) * 2) + 10 * 1000;
+            var t = (i%5 + 10) * 1000;
             console.log(`随机延迟 ${t / 1000} 秒...`);
             await sleep(t);
             // $.wait($.time);
