@@ -1,5 +1,5 @@
 /*
-修改自github@https://github.com/dompling
+修改自https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/JD_revise_cookie.js
 
 ===================
 特别说明：
@@ -20,15 +20,15 @@ hostname = home.m.jd.com
 ===================Quantumult X=====================
 [rewrite_local]
 # 获取多账号京东Cookie
-^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action url script-request-header https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/JD_revise_cookie.js
+^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action url script-request-header https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js
 
 ===================Loon===================
 [Script]
-http-request ^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/JD_revise_cookie.js, tag=获取多账号京东Cookie
+http-request ^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js, tag=获取多账号京东Cookie
 
 ===================Surge===================
 [Script]
-获取多账号京东Cookie = type=http-request,pattern=^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/JD_revise_cookie.js,script-update-interval=0
+获取多账号京东Cookie = type=http-request,pattern=^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js,script-update-interval=0
  */
 
 const APIKey = "CookiesJD";
