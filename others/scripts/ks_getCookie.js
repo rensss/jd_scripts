@@ -12,9 +12,9 @@ const $ = new API("ks_getCookie");
         } else {
             if ($request.url.indexOf('watering') > -1) {
                 const ck = `${$request.headers['Cookie'] || $request.headers['cookie']};`
-                const userId = ck.match(/userId=.+?;/)
+                // const userId = ck.match(/userId=.+?;/)
                 $.write(ck, '#kscookies');
-                $.notify('快手果园获取cookie成功', '', userId);
+                $.notify('快手果园获取cookie成功', '', '');
                 console.log(ck);
             }
         }
