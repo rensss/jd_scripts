@@ -13,8 +13,10 @@ function modifyMain(data) {
     if (dataModify.channelInfo && dataModify.channelInfo.channels
         && dataModify.channelInfo.channels[0].payload && dataModify.channelInfo.channels[0].payload.items) {
         dataModify.channelInfo.channels[0].payload.items[2] = {};
+        console.log('广告数据:\n' + dataModify.channelInfo.channels[0].payload.items[2]);
         return JSON.stringify(dataModify);
     } else {
+        console.log('没有广告数据');
         return data;
     }
 }
