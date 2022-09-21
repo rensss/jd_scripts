@@ -10,7 +10,8 @@
 
 function modifyMain(data) {
     let dataModify = JSON.parse(data);
-    if (dataModify.channelInfo.channels[0].payload.items[2]) {
+    if (dataModify.channelInfo && dataModify.channelInfo.channels
+        && dataModify.channelInfo.channels[0].payload && dataModify.channelInfo.channels[0].payload.items) {
         dataModify.channelInfo.channels[0].payload.items[2] = {};
         return JSON.stringify(dataModify);
     } else {
