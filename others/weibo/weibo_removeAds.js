@@ -52,7 +52,7 @@ function removeHotSearchAds(groups) {
     console.log('移除发现页热搜广告开始💕');
     let newGroups = [];
     for (let group of groups) {
-        if (group.item_log && group.item_log.search_flag) { // 广告没有search_flag字段，只有group.item_log.adid
+        if (group.item_log && (group.item_log.search_flag || group.item_log.nav)) { // 广告没有search_flag字段，只有group.item_log.adid
             newGroups.push(group);
         }
     }
