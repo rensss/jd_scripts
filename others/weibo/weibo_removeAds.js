@@ -10,6 +10,7 @@
 
 const url1 = '/search/finder';
 const url2 = '/search/container_timeline';
+const url3 = '/search/container_discover';
 
 function modifyMain(url, data) {
     let dataModify = JSON.parse(data);
@@ -23,11 +24,11 @@ function modifyMain(url, data) {
         }
     }
 
-    // 发现页面刷新
-    if (url.indexOf(url2) > -1) {
+    // 发现页面刷新，再次点击发现按钮
+    if (url.indexOf(url2) > -1 || url.indexOf(url3) > -1) {
         if (dataModify.items && dataModify.items[2]) {
-            console.log('刷新发现页，移除轮播模块🤣🤣');
             dataModify.items[2] = {};
+            console.log('刷新发现页，移除轮播模块🤣🤣');
             return JSON.stringify(dataModify);
         }
     }
