@@ -18,7 +18,7 @@ function modifyMain(url, data) {
         if (dataModify.channelInfo && dataModify.channelInfo.channels
             && dataModify.channelInfo.channels[0].payload && dataModify.channelInfo.channels[0].payload.items) {
             dataModify.channelInfo.channels[0].payload.items[2] = {};
-            console.log('广告数据①:\n' + dataModify.channelInfo.channels[0].payload.items[2]);
+            console.log('进入发现页，移除轮播模块💕💕');
             return JSON.stringify(dataModify);
         }
     }
@@ -26,13 +26,13 @@ function modifyMain(url, data) {
     // 发现页面刷新
     if (url.indexOf(url2) > -1) {
         if (dataModify.items && dataModify.items[2]) {
-            console.log('广告数据②:\n' + dataModify.items[2]);
+            console.log('刷新发现页，移除轮播模块🤣🤣');
             dataModify.items[2] = {};
             return JSON.stringify(dataModify);
         }
     }
 
-    console.log('没有广告数据');
+    console.log('没有广告数据🧧🧧');
     return data;
 }
 
