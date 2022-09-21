@@ -9,12 +9,13 @@
  */
 
 function modifyMain(data) {
-    data = JSON.parse(data);
-    if (data.channelInfo.channels[0].payload.items[2]) {
-        data.channelInfo.channels[0].payload.items[2] = {};
-        return JSON.stringify(data);
+    let dataModify = JSON.parse(data);
+    if (dataModify.channelInfo.channels[0].payload.items[2]) {
+        dataModify.channelInfo.channels[0].payload.items[2] = {};
+        return JSON.stringify(dataModify);
+    } else {
+        return data;
     }
-    return data;
 }
 
 var body = $response.body;
