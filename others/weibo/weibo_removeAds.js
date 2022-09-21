@@ -19,9 +19,10 @@ function modifyMain(url, data) {
         if (dataModify.channelInfo && dataModify.channelInfo.channels
             && dataModify.channelInfo.channels[0].payload && dataModify.channelInfo.channels[0].payload.items) {
             // 1、下标是1的为热搜模块
+            console.log('进入发现页，移除热搜广告💕💕');
             dataModify.channelInfo.channels[0].payload.items[1].data.group
                 = removeHotSearchAds(dataModify.channelInfo.channels[0].payload.items[1].data.group);
-            console.log('进入发现页，移除热搜广告💕💕');
+
 
             // 2、下标为2的是轮播图模块
             dataModify.channelInfo.channels[0].payload.items[2] = {};
@@ -34,8 +35,9 @@ function modifyMain(url, data) {
     if (url.indexOf(url2) > -1 || url.indexOf(url3) > -1) {
         if (dataModify.items) {
             // 1、下标是1的为热搜模块
-            dataModify.items[1].data.group = removeHotSearchAds(dataModify.items[1].data.group);
             console.log('刷新发现页，移除热搜广告🤣🤣');
+            dataModify.items[1].data.group = removeHotSearchAds(dataModify.items[1].data.group);
+
 
             // 2、下标为2的是轮播图模块
             dataModify.items[2] = {};
