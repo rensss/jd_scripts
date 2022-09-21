@@ -8,21 +8,37 @@
  * 广告的图片url是这样的 "pic": "https://wx4.sinaimg.cn/large/0024cZx9ly8h6cvd7kzk9j60ji08ijty02.jpg",
  */
 
-function modifyMain(data) {
+const url1 = '/search/finder';
+const url2 = '/search/container_timeline';
+
+function modifyMain(url, data) {
     let dataModify = JSON.parse(data);
-    if (dataModify.channelInfo && dataModify.channelInfo.channels
-        && dataModify.channelInfo.channels[0].payload && dataModify.channelInfo.channels[0].payload.items) {
-        dataModify.channelInfo.channels[0].payload.items[2] = {};
-        console.log('广告数据:\n' + dataModify.channelInfo.channels[0].payload.items[2]);
-        return JSON.stringify(dataModify);
-    } else {
-        console.log('没有广告数据');
-        return data;
+    // 首次点击发现按钮
+    if (url.indexOf(url1) > -1) {
+        if (dataModify.channelInfo && dataModify.channelInfo.channels
+            && dataModify.channelInfo.channels[0].payload && dataModify.channelInfo.channels[0].payload.items) {
+            dataModify.channelInfo.channels[0].payload.items[2] = {};
+            console.log('广告数据①:\n' + dataModify.channelInfo.channels[0].payload.items[2]);
+            return JSON.stringify(dataModify);
+        }
     }
+
+    // 发现页面刷新
+    if (url.indexOf(url2) > -1) {
+        if (dataModify.items && dataModify.items[2]) {
+            console.log('广告数据②:\n' + dataModify.items[2]);
+            dataModify.items[2] = {};
+            return JSON.stringify(dataModify);
+        }
+    }
+
+    console.log('没有广告数据');
+    return data;
 }
 
 var body = $response.body;
+var url = $request.url;
 
-body = modifyMain(body);
+body = modifyMain(url, body);
 
 $done({body});
