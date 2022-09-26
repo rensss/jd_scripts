@@ -27,16 +27,17 @@
 
 function modifyMain(data) {
     let dataModify = JSON.parse(data);
-    console.log('返回的地图id为：' + dataModify);
+    console.log('更改地图开始...');
     if (dataModify.data && dataModify.data.map_md5) {
         let map_md5_new = dataModify.data.map_md5;
         console.log('更改前的地图id为：' + map_md5_new);
         map_md5_new[1] = map_md5_new[0];
-        console.log('更改前的地图id为：' + map_md5_new);
+        console.log('更改后的地图id为：' + map_md5_new);
         dataModify.data.map_md5 = map_md5_new;
+        console.log('更改地图结束...');
         return JSON.stringify(dataModify);
     }
-    console.log('更改地图结束🧧🧧');
+    console.log('没有更改地图，方法结束🧧🧧');
 }
 
 var body = $response.body;
