@@ -41,9 +41,9 @@
  * https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/sheep/sheep.conf, tag=养了个羊更改地图@fmz200, update-interval=172800, opt-parser=false, enabled=true
  */
 
-function modifyMain(url, data) {
-    let dataModify = JSON.parse(data);
+function modifyMain(url) {
     if (url.indexOf("map_info_ex") > -1) {
+        let dataModify = JSON.parse($response.body);
         console.log('更改地图开始...');
         if (dataModify.data && dataModify.data.map_md5) {
             let map_md5_new = dataModify.data.map_md5;
@@ -58,6 +58,7 @@ function modifyMain(url, data) {
     }
 
     if (url.indexOf("game_over_ex") > -1) {
+        let dataModify = JSON.parse($request.body);
         console.log('更改通关接口请求参数开始...');
         dataModify.rank_time = '1203'; // 通关时间 秒
         dataModify.rank_state = '1'; // 通关时间 秒
@@ -68,9 +69,8 @@ function modifyMain(url, data) {
 
 }
 
-var body = $response.body;
 var url = $request.url;
 
-body = modifyMain(url, body);
+body = modifyMain(url);
 
 $done({body});
