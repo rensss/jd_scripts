@@ -47,6 +47,7 @@
 function modifyMain(url) {
 
     // 推测是否成功通关可能与map_md5有关，因此不碰map_md5，而是修改掉map_seed（修改该值不影响游戏开始，但影响卡牌的分布，卡牌会变得更加密集）
+    // 2022.09.27 实测通关以后朋友圈和排行榜都显示未过关，弃用
     if (url.indexOf("map_info_ex") > -1){
         console.log('更改地图开始...');
         let dataModify = JSON.parse($response.body);
