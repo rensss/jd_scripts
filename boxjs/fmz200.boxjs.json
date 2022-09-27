@@ -33,6 +33,32 @@
       ]
     },
     {
+      "id": "pinduoduo_ck",
+      "name": "拼多多果园token",
+      "keys": [
+        "ddgyck"
+      ],
+      "descs_html": [
+        "小程序或APP 进果园一圈（批量浇水），在请求头中搜索AccessToken"
+      ],
+      "settings": [
+        {
+          "id": "ddgyck",
+          "name": "拼多多果园token",
+          "val": "",
+          "type": "text",
+          "desc": "多个账号用@分割：tk1@tk2"
+        }
+      ],
+      "author": "@fmz200",
+      "repo": "https://github.com/fmz200/jd_scripts",
+      "script": "https://raw.githubusercontent.com/fmz200/docker_scripts/main/pinduoduo/pdd_guoyuan.js",
+      "icons": [
+        "https://raw.githubusercontent.com/fmz200/icons/master/apps/icons144/pinduoduo.png",
+        "https://raw.githubusercontent.com/fmz200/icons/master/apps/icons144/pinduoduo.png"
+      ]
+    },
+    {
       "id": "xmSports",
       "name": "小米运动",
       "keys": [
