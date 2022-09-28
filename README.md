@@ -14,17 +14,3 @@
 * 
 * 不更新，不维护
 * 具体使用说明可以参考脚本内的注释，特别是获取ck的操作
-
-## 特别感谢:
-
-* [@NobyDa](https://github.com/NobyDa)
-
-* [@chavyleung](https://github.com/chavyleung)
-
-* [@liuxiaoyucc](https://github.com/liuxiaoyucc)
-
-* [@Zero-S1](https://github.com/Zero-S1)
-
-* [@uniqueque](https://github.com/uniqueque)
-
-* [@nzw9314](https://github.com/nzw9314)
