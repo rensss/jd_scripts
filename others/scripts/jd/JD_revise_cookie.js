@@ -20,15 +20,15 @@ hostname = home.m.jd.com
 ===================Quantumult X=====================
 [rewrite_local]
 # 获取多账号京东Cookie
-^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action url script-request-header https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js
+^https:\/\/home\.m\.jd\.com\/myJd\/home\.action url script-request-header https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js
 
 ===================Loon===================
 [Script]
-http-request ^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js, tag=获取多账号京东Cookie
+http-request ^https:\/\/home\.m\.jd\.com\/myJd\/home\.action script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js, tag=获取多账号京东Cookie
 
 ===================Surge===================
 [Script]
-获取多账号京东Cookie = type=http-request,pattern=^https:\/\/home\.m\.jd\.com\/myJd\/newhome\.action,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js,script-update-interval=0
+获取多账号京东Cookie = type=http-request,pattern=^https:\/\/home\.m\.jd\.com\/myJd\/home\.action,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/fmz200/jd_scripts/master/others/scripts/jd/JD_revise_cookie.js,script-update-interval=0
  */
 
 const APIKey = "CookiesJD";
@@ -44,7 +44,7 @@ function getCache() {
 
 function GetCookie() {
   try {
-    if ($request.headers && ($request.url.indexOf("newhome.action") > -1)) {
+    if ($request.headers) {
       var CV = $request.headers["Cookie"] || $request.headers["cookie"];
       if (CV.match(/(pt_key=.+?pt_pin=|pt_pin=.+?pt_key=)/)) {
         var CookieValue = CV.match(/pt_key=.+?;/) + CV.match(/pt_pin=.+?;/);
