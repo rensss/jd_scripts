@@ -33,7 +33,7 @@
       ]
     },
     {
-      "id": "pinduoduo_ck",
+      "id": "ddgyck",
       "name": "拼多多果园token",
       "keys": [
         "ddgyck"
@@ -92,6 +92,28 @@
       "author": "@lxk0301",
       "repo": "https://github.com/fmz200/jd_scripts/tree/master/",
       "script": "https://raw.githubusercontent.com/fmz200/jd_scripts/master/backUp/xmSports.js",
+      "icons": [
+        "https://raw.githubusercontent.com/58xinian/icon/master/xmyd_mini.png",
+        "https://raw.githubusercontent.com/58xinian/icon/master/xmyd.png"
+      ]
+    },
+    {
+      "id": "sheepToken",
+      "name": "养了个羊token",
+      "keys": [
+        "sheepToken"
+      ],
+      "settings": [
+        {
+          "id": "sheepToken",
+          "name": "养了个羊token",
+          "val": "",
+          "type": "text",
+          "desc": "进入小程序时获取的token"
+        }
+      ],
+      "author": "@fmz200",
+      "repo": "https://github.com/fmz200/jd_scripts/tree/master/",
       "icons": [
         "https://raw.githubusercontent.com/58xinian/icon/master/xmyd_mini.png",
         "https://raw.githubusercontent.com/58xinian/icon/master/xmyd.png"
