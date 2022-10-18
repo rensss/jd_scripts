@@ -108,7 +108,9 @@
           "id": "sheepToken",
           "name": "养了个羊token",
           "val": "",
-          "type": "text",
+          "type": "textarea",
+          "autoGrow": false,
+          "rows": 8,
           "desc": "进入小程序时获取的token"
         }
       ],
